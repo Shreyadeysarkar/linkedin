@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LinkedIn Profile Scraper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile Scraper</title>
 </head>
 <body>
-  <h1>LinkedIn Profile Scraper</h1>
-  <button id="openProfileLinksBtn">Open Profiles</button>
-  <script src="popup.js"></script>
+    <h1>LinkedIn Profile Scraper</h1>
+    <label for="likeCount">Like Count:</label>
+    <input type="number" id="likeCount" min="1" required><br>
+    <label for="commentCount">Comment Count:</label>
+    <input type="number" id="commentCount" min="1" required><br>
+    <button id="interactBtn" disabled>Interact with Feed</button>
+    <script src="popup.js"></script>
 </body>
 </html>

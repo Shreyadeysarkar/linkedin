@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "LinkedIn Profile Scraper",
   "version": "1.0",
-  "description": "Scrapes LinkedIn profiles and sends data to a server.",
+  "description": "Scrapes LinkedIn profiles and interacts with LinkedIn feed.",
   "permissions": [
     "tabs",
     "activeTab",
@@ -21,7 +21,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.linkedin.com/in/*"],
+      "matches": ["https://www.linkedin.com/in/*", "https://www.linkedin.com/feed/*"],
       "js": ["popup/extractData.js"]
     }
   ]

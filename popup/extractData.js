@@ -1,21 +1,13 @@
-// extractData.js
+(async () => {
+  const profile = {
+    name: document.querySelector('.top-card-layout__title')?.innerText,
+    url: window.location.href,
+    about: document.querySelector('.summary p')?.innerText,
+    bio: document.querySelector('.pv-oc .pv-entity__description')?.innerText,
+    location: document.querySelector('.top-card-layout__first-subline')?.innerText,
+    followerCount: parseInt(document.querySelector('.pv-followers__title span')?.innerText.replace(/\D/g, '')),
+    connectionCount: parseInt(document.querySelector('.top-card-layout__second-subline')?.innerText.replace(/\D/g, '')),
+  };
 
-(function() {
-    // Example code to extract data from LinkedIn profile page
-    const name = document.querySelector('.inline.t-24.t-black.t-normal.break-words')?.innerText || '';
-    const location = document.querySelector('.t-16.t-black.t-normal.inline-block')?.innerText || '';
-    const about = document.querySelector('.pv-about__summary-text')?.innerText || '';
-    const bio = document.querySelector('.pv-text-details__left-panel')?.innerText || '';
-    const followerCount = parseInt(document.querySelector('.t-16.t-black.t-normal')?.innerText.match(/\d+/)?.[0] || '0');
-    const connectionCount = parseInt(document.querySelector('.t-16.t-black.t-normal')?.innerText.match(/\d+/)?.[0] || '0');
-  
-    return {
-      name,
-      location,
-      about,
-      bio,
-      followerCount,
-      connectionCount
-    };
-  })();
-  
+  chrome.runtime.sendMessage({ type: 'SCRAPED_PROFILE', data: profile });
+})();
